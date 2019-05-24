@@ -1,0 +1,32 @@
+import { Weather } from './../../shared/interfaces/weather';
+import { Component, OnInit } from '@angular/core';
+import { WeatherService } from 'src/app/weather.service';
+import { WeatherDataService } from 'src/app/weather-data.service';
+
+@Component({
+  selector: 'app-weather-search',
+  templateUrl: './weather-search.component.html',
+  styleUrls: ['./weather-search.component.css']
+})
+export class WeatherSearchComponent implements OnInit {
+  cityQuery = '';
+  // weather: any;
+  errorMessage: any = {};
+  // what will happen if errorMessage not an object?????
+  constructor(private weatherService: WeatherService, private weatherDataService: WeatherDataService) { }
+
+  ngOnInit() {
+  }
+  set weather(data: Weather) {
+      this.weatherDataService.weather = data;
+  }
+
+  searchCity() {
+    this.weatherService.getWeatherData(this.cityQuery).subscribe(
+      weather => this.weather = weather,
+      error => this.errorMessage = error
+      // ,error => console.log(error)
+    );
+  }
+
+}

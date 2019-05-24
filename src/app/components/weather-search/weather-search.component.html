@@ -1,0 +1,26 @@
+
+    <form class="city-search-form">
+
+            <mat-form-field class="input-full-width">
+                <input matInput 
+                placeholder="Search Cities"
+                name="cityQuery"
+                [(ngModel)]="cityQuery">
+            </mat-form-field>
+        
+            <button mat-raised-button class="btn btn-block" (click)="searchCity(cityQuery)">Search</button>
+    </form>
+
+
+    <div style="margin: 20px 20px" *ngIf="weather">
+
+            {{ weather.city }} {{ weather.country }}
+
+    </div>
+
+    <div *ngIf="errorMessage?.message">
+        <div class="alert alert-danger text-center mt-2">
+                {{ errorMessage.status }} | City Not Found
+        </div>
+    </div>
+  
