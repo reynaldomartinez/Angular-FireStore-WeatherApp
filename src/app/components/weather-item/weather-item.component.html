@@ -1,11 +1,13 @@
-<mat-card class="example-card" style="width:50%; margin:10px auto;">
+<mat-card *ngIf="weather.city" class="example-card" style="width:50%; margin:10px auto;">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Shiba Inu</mat-card-title>
         <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
-    <p>Google Map</p>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+    <agm-map [latitude]="weather.lat" [longitude]="weather.lon">
+        <agm-marker [latitude]="weather.lat" [longitude]="weather.lon"></agm-marker>
+    </agm-map>
 
     <mat-card-content>
         <p>

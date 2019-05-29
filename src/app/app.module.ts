@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +15,7 @@ import { WeatherItemComponent } from './components/weather-item/weather-item.com
 import { WeatherSearchComponent } from './components/weather-search/weather-search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCB_xaoLlJP2dStRxhObjM6JFgtpGJfUlE'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
