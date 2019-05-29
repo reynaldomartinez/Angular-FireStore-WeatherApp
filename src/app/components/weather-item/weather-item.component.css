@@ -1,5 +1,6 @@
 .weather-card {
     max-width: 400px;
+    margin-bottom: 200px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -7,5 +8,16 @@
 
 agm-map {
     height: 300px;
-  }
+}
   
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.weather-image {
+    height: 200px;
+    width: 200px;
+}

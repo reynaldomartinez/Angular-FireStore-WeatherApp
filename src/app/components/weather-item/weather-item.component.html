@@ -1,8 +1,7 @@
-<mat-card *ngIf="weather.city" class="example-card" style="width:50%; margin:10px auto;">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+<mat-card *ngIf="weather?.city" class="example-card" style="width:50%; margin: 10px auto;">
+    <mat-card-header class="card-header">
+        <mat-card-title><h1>{{ weather.city }}, {{ weather.country }}</h1></mat-card-title>
+        <mat-card-subtitle class="text-center">{{  weather.temp | number: "1.0-0" }} °F</mat-card-subtitle>
     </mat-card-header>
 
     <agm-map [latitude]="weather.lat" [longitude]="weather.lon">
@@ -10,10 +9,12 @@
     </agm-map>
 
     <mat-card-content>
-        <p>
-        {{weather.description}} | 
-        {{weather.city}}
-        </p>
+        <h4 style="margin:20px auto;">Weather Condition:</h4>
+<hr>
+        <div class="weather-desc">
+                <h6 class="text-center">{{ weather.description }}</h6>
+                <img [src]="weather.image" alt="Weather image" class="weather-image">
+        </div>
     </mat-card-content>
 
     <mat-card-actions>
