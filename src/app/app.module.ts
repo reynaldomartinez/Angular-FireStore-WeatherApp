@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,13 +18,30 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './user/login/login.component';
+import { SavedCitiesComponent } from './user/saved-cities/saved-cities.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { AuthServiceComponent } from './user/auth-service.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     WeatherComponent,
     WeatherItemComponent,
-    WeatherSearchComponent
+    WeatherSearchComponent,
+    UserComponent,
+    LoginComponent,
+    SavedCitiesComponent,
+    ProfileComponent,
+    AuthServiceComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +61,12 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCB_xaoLlJP2dStRxhObjM6JFgtpGJfUlE'
-    })
+    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

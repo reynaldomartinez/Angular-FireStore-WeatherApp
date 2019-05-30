@@ -2,6 +2,7 @@ import { WeatherDataService } from './../../weather-data.service';
 import { WeatherService } from './../../weather.service';
 import { Weather } from './../../shared/interfaces/weather';
 import { Component, OnInit } from '@angular/core';
+import { AuthProvider } from 'ngx-auth-firebaseui';
 
 @Component({
   selector: 'app-weather-search',
@@ -12,6 +13,7 @@ export class WeatherSearchComponent implements OnInit {
   cityQuery = '';
   // weather: any;
   errorMessage: any = {};
+  providers = AuthProvider;
   // what will happen if errorMessnot an object?????
   constructor(private weatherService: WeatherService, private weatherDataService: WeatherDataService) { }
 
